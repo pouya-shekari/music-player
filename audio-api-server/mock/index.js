@@ -1,5 +1,5 @@
 const appData = {
-    appQuote: 'Find the best music for your code',
+    appQuote: 'Find the best music for you',
     homeScreen: {
         commercial: {
             label: 'Commercial',
