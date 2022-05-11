@@ -38,7 +38,7 @@ const FixFooter = ({ trackIndex, audioList }) => {
     audioRef.current.currentTime = e.target.value;
   };
 
-  const nextTrack = () => {
+  const nextTrack = () => { // here
     if (currentTrackIndex < audioList.length - 1) {
       setCurrentTrackIndex((prevIndex) => prevIndex + 1);
       setTrackProgress(0);
@@ -60,6 +60,7 @@ const FixFooter = ({ trackIndex, audioList }) => {
     clearInterval(intervalRef.current);
     setCurrentTrackIndex(trackIndex);
   }, [trackIndex]);
+
 
   useEffect(() => {
 
@@ -91,6 +92,12 @@ const FixFooter = ({ trackIndex, audioList }) => {
       clearInterval(intervalRef.current);
     }
   }, [isPlaying]);
+
+  useEffect(()=>{
+    if(trackProgress == audioRef.current.duration){
+      nextTrack()
+    }
+  },[trackProgress])
 
   console.log({ trackProgress });
 
